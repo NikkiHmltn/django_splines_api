@@ -31,7 +31,7 @@ DEBUG = True
 
 CORS_ALLOW_CREDENTIALS = True
 # CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOWED_ORIGINS = ['https://reticulating-splines.onrender.com', 'localhost']
 
 ALLOWED_HOSTS = ['django-splines-api.onrender.com', 'localhost']
 
