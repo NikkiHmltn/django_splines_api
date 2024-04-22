@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -32,7 +33,7 @@ CORS_ALLOW_CREDENTIALS = True
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = ['*']
 
-ALLOWED_HOSTS = ['django-splines-api.onrender.com', 'localhost:10000']
+ALLOWED_HOSTS = ['django-splines-api.onrender.com', 'localhost']
 
 # Application definition
 
@@ -85,10 +86,10 @@ WSGI_APPLICATION = 'django_sim_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sims-api',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost:5432/sims-api',
+        conn_max_age=600,
+    )
 }
 
 
